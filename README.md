@@ -96,14 +96,16 @@ Located in tests/sample_documents/
 ## Project Structure
 
 ndpa-compliance-checker/
-|-- app.py
-|-- config.py
-|-- models/
-|-- routes/
-|-- services/
-|-- templates/
-|-- static/
-|-- data/
-|-- tests/
-|-- requirements.txt
-|-- README.md
+    app.py
+    config.py
+    models/
+    routes/
+    services/
+    templates/
+    static/
+        css/
+        js/
+    data/
+    tests/
+    requirements.txt
+    README.md
