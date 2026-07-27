@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-section animate-slide-up">
+    <div class="row align-items-center min-vh-hero">
+        <div class="col-lg-6">
+            <div class="hero-badge animate-slide-up-d1">
+                <i class="bi bi-shield-fill-check"></i>
+                Nigeria Data Protection Act 2023
+            </div>
+            <h1 class="hero-title animate-slide-up-d1">
+                Automated NDPA
+                <span class="hero-title-accent">Compliance</span>
+                Checker
+            </h1>
+            <p class="hero-subtitle animate-slide-up-d2">
+                Upload your software document and get an instant AI-powered
+                compliance report against the Nigeria Data Protection Act 2023.
+                Know exactly where you stand before regulators do.
+            </p>
+            <div class="hero-actions animate-slide-up-d3">
+                <a href="{{ url_for('auth.register') }}" class="btn-primary-green btn-hero">
+                    <i class="bi bi-rocket-takeoff-fill"></i> Get Started Free
+                </a>
+                <a href="{{ url_for('auth.login') }}" class="btn-outline-green btn-hero">
+                    <i class="bi bi-box-arrow-in-right"></i> Sign In
+                </a>
+            </div>
+            <div class="hero-stats animate-slide-up-d3">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">35+</span>
+                    <span class="hero-stat-label">NDPA Rules</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">AI</span>
+                    <span class="hero-stat-label">Powered</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">Free</span>
+                    <span class="hero-stat-label">To Use</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-flex justify-content-center animate-slide-up-d2">
+            <div class="hero-visual">
+                <div class="hero-card-float hero-card-1">
+                    <i class="bi bi-check-circle-fill" style="color:#16a34a;"></i>
+                    <span>Consent Mechanism</span>
+                    <span class="hc-badge pass">Compliant</span>
+                </div>
+                <div class="hero-card-float hero-card-2">
+                    <i class="bi bi-x-circle-fill" style="color:#dc2626;"></i>
+                    <span>Data Encryption</span>
+                    <span class="hc-badge fail">Non-Compliant</span>
+                </div>
+                <div class="hero-card-float hero-card-3">
+                    <i class="bi bi-shield-fill-check" style="color:#16a34a; font-size:3rem;"></i>
+                    <div style="font-size:1.5rem; font-weight:800; color:#0f172a;">72%</div>
+                    <div style="font-size:0.8rem; color:#64748b;">Compliance Score</div>
+                </div>
+                <div class="hero-card-float hero-card-4">
+                    <i class="bi bi-question-circle-fill" style="color:#d97706;"></i>
+                    <span>Data Officer</span>
+                    <span class="hc-badge warn">Not Addressed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section animate-fade-in">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon" style="background:#f0fdf4; color:#16a34a;">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+                <h5 class="feature-title">AI Powered Analysis</h5>
+                <p class="feature-text">
+                    Uses advanced NLP sentence similarity models to match
+                    your software document against NDPA 2023 rules automatically.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon" style="background:#eff6ff; color:#2563eb;">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                </div>
+                <h5 class="feature-title">Detailed Reports</h5>
+                <p class="feature-text">
+                    Get clear compliance reports showing exactly which rules
+                    pass, which fail, and specific recommendations for each issue.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon" style="background:#f5f3ff; color:#7c3aed;">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+                <h5 class="feature-title">Full History</h5>
+                <p class="feature-text">
+                    Track all your compliance checks over time.
+                    Download PDF reports and monitor your improvement
+                    with every update.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="how-section animate-fade-in">
+    <h4 class="section-title">How It Works</h4>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h6>Create Account</h6>
+                <p>Register for free and log in to your compliance dashboard.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h6>Upload Document</h6>
+                <p>Upload your SRS, privacy policy, or any software document as PDF or TXT.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h6>AI Analysis</h6>
+                <p>The system checks your document against 35 NDPA 2023 rules automatically.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h6>Get Report</h6>
+                <p>View your compliance score, detailed findings, and download your PDF report.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

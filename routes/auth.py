@@ -10,7 +10,7 @@ auth = Blueprint('auth', __name__)
 def index():
     if current_user.is_authenticated:
         return redirect(url_for('dashboard.home'))
-    return redirect(url_for('auth.login'))
+    return render_template('index.html')
 
 
 @auth.route('/register', methods=['GET', 'POST'])
