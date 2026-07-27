@@ -38,3 +38,44 @@ The privacy policy explains what data is collected, how it is used, and user rig
 DATA SHARING:
 The system does not sell personal data to third parties.
 Data is not shared with any external organisations without explicit consent.
+
+COOKIES AND TRACKING:
+The system does not use cookies or tracking 
+technologies without prior user consent.
+Users are presented with a cookie consent 
+banner on first visit.
+
+THIRD PARTY PROCESSORS:
+A written data processing agreement is in place 
+with all third party service providers.
+No data is shared with third parties without 
+a signed agreement.
+
+AUTOMATED DECISIONS:
+The system does not use automated decision 
+making or profiling on user data.
+Users are informed before any automated 
+processing occurs.
+
+MARKETING:
+Users are not added to marketing lists 
+without explicit consent.
+Users can opt out of marketing at any time.
+
+COMPLIANCE AUDIT:
+The organisation conducts an annual data 
+protection compliance audit.
+Results are submitted to the Nigeria Data 
+Protection Commission annually.
+
+PRIVACY NOTICE:
+A clear privacy notice is displayed at the 
+point of data collection.
+The notice explains what data is collected 
+and why.
+
+OPT OUT:
+Users can opt out of data collection at 
+any time through account settings.
+The opt out mechanism is clearly visible 
+and easy to use.

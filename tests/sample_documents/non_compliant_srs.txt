@@ -33,3 +33,44 @@ DATA SHARING:
 User data is sold to third-party advertisers for profit.
 Data is shared with marketing companies without user consent.
 No privacy policy is published or accessible to users.
+
+COOKIES AND TRACKING:
+The system places tracking cookies on user 
+devices without consent.
+Third party advertising cookies are loaded 
+automatically on every page.
+
+THIRD PARTY PROCESSORS:
+There are no written agreements with third 
+party data processors.
+Data is shared with multiple third parties 
+without any formal agreement.
+
+AUTOMATED DECISIONS:
+The system uses automated profiling to 
+determine user creditworthiness without 
+informing users.
+Users are not told about automated 
+decision making.
+
+MARKETING:
+All users are automatically added to 
+marketing lists upon registration.
+There is no opt out mechanism for marketing.
+
+COMPLIANCE:
+The organisation has never conducted 
+a data protection audit.
+No reports have been submitted to 
+any regulatory body.
+
+PRIVACY NOTICE:
+There is no privacy notice displayed 
+when collecting user data.
+Users are not informed about what 
+data is being collected.
+
+OPT OUT:
+Users cannot opt out of data collection.
+There is no mechanism to stop data 
+collection once started.

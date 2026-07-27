@@ -123,5 +123,55 @@
     "section": "Section 39(1)",
     "rule_text": "A data controller shall allow data subjects to withdraw their consent at any time and must stop processing their data upon withdrawal.",
     "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 40(1)",
+    "rule_text": "A data controller shall register with the Nigeria Data Protection Commission before processing personal data.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 41(1)",
+    "rule_text": "A data controller shall not use personal data for direct marketing or advertising without the explicit consent of the data subject.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 42(1)",
+    "rule_text": "Where a data controller engages a third party processor, a written data processing agreement must be in place before any data is shared.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 43(1)",
+    "rule_text": "A data controller must inform data subjects when their personal data will be used for automated decision making or profiling.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 44(1)",
+    "rule_text": "A data controller shall conduct an annual data protection compliance audit and submit the results to the Nigeria Data Protection Commission.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 45(1)",
+    "rule_text": "Cookies and tracking technologies shall not be placed on a user device without prior informed consent from the user.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 46(1)",
+    "rule_text": "A data controller must provide users with a clear and easy to use mechanism to opt out of data collection at any time.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 47(1)",
+    "rule_text": "Personal data collected through mobile applications must be protected with the same level of security as data collected through web platforms.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 48(1)",
+    "rule_text": "A data controller shall not retain personal data in identifiable form beyond the period necessary for the original purpose of collection.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 49(1)",
+    "rule_text": "A data controller must display a clear and prominent privacy notice at the point of data collection explaining what data is being collected and why.",
+    "rule_type": "OBLIGATION"
   }
 ]
