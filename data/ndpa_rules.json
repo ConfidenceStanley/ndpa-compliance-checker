@@ -1,0 +1,127 @@
+[
+  {
+    "section": "Section 24(1)",
+    "rule_text": "A data controller shall ensure that personal data is collected only for specified, explicit and legitimate purposes and not further processed in a manner incompatible with those purposes.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 24(2)",
+    "rule_text": "A data controller shall obtain the consent of the data subject before collecting or processing personal data.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 24(3)",
+    "rule_text": "Personal data shall be adequate, relevant and limited to what is necessary in relation to the purposes for which it is processed.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 25(1)",
+    "rule_text": "A data controller shall ensure that personal data is accurate and where necessary kept up to date.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 26(1)",
+    "rule_text": "Personal data shall not be kept in a form which permits identification of data subjects for longer than is necessary for the purposes for which the personal data is processed.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 27(1)",
+    "rule_text": "A data controller shall implement appropriate technical and organisational measures to ensure the security of personal data.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 27(2)",
+    "rule_text": "A data controller must ensure that personal data is protected against unauthorised or unlawful processing and against accidental loss, destruction or damage.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 27(3)",
+    "rule_text": "A data controller shall use encryption to protect personal data stored in electronic form.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 28(1)",
+    "rule_text": "A data controller shall notify the Commission and affected data subjects of a personal data breach within 72 hours of becoming aware of the breach.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 29(1)",
+    "rule_text": "A data subject shall have the right to request access to their personal data held by a data controller.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 29(2)",
+    "rule_text": "A data controller must provide a means by which data subjects can request correction of inaccurate personal data.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 29(3)",
+    "rule_text": "A data subject shall have the right to request the deletion of their personal data and the data controller must comply where the data is no longer necessary.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 30(1)",
+    "rule_text": "Personal data shall not be transferred to a foreign country unless that country provides an adequate level of data protection.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 30(2)",
+    "rule_text": "A data controller must ensure that appropriate safeguards are in place before transferring personal data to a third party organisation.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 31(1)",
+    "rule_text": "A data controller shall not sell personal data of data subjects to third parties without explicit consent.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 32(1)",
+    "rule_text": "A data controller shall provide clear and transparent information to data subjects about how their personal data is collected and used.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 32(2)",
+    "rule_text": "A data controller must publish a privacy policy that clearly explains the purpose of data collection and the rights of data subjects.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 33(1)",
+    "rule_text": "A data controller shall appoint a Data Protection Officer where the organisation processes large volumes of personal data.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 34(1)",
+    "rule_text": "A data controller shall conduct a Data Protection Impact Assessment before processing personal data that is likely to result in high risk to data subjects.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 35(1)",
+    "rule_text": "Personal data relating to children shall not be processed without the consent of a parent or legal guardian.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 36(1)",
+    "rule_text": "A data controller shall implement access controls to ensure that personal data is only accessible to authorised personnel.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 36(2)",
+    "rule_text": "A data controller must maintain logs of all access to personal data to enable auditing and accountability.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 37(1)",
+    "rule_text": "A data controller shall not process sensitive personal data including health data, biometric data and financial data without explicit consent.",
+    "rule_type": "PROHIBITION"
+  },
+  {
+    "section": "Section 38(1)",
+    "rule_text": "A data controller must have a lawful basis for every instance of personal data processing.",
+    "rule_type": "OBLIGATION"
+  },
+  {
+    "section": "Section 39(1)",
+    "rule_text": "A data controller shall allow data subjects to withdraw their consent at any time and must stop processing their data upon withdrawal.",
+    "rule_type": "OBLIGATION"
+  }
+]
