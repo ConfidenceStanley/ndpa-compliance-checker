@@ -10,25 +10,26 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg" id="main-navbar">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ url_for('auth.index') }}">
-            <i class="bi bi-shield-check"></i> NDPA Checker
+        <a class="navbar-brand" href="{{ url_for('auth.index') }}">
+            <span class="brand-icon"><i class="bi bi-shield-check"></i></span>
+            NDPA Checker
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-list text-white" style="font-size:1.5rem;"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('dashboard.home') }}">
-                        <i class="bi bi-speedometer2"></i> Dashboard
+                        <i class="bi bi-grid-1x2-fill"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('compliance.upload') }}">
-                        <i class="bi bi-upload"></i> Check Compliance
+                        <i class="bi bi-cloud-arrow-up-fill"></i> Scan
                     </a>
                 </li>
                 <li class="nav-item">
@@ -39,7 +40,7 @@
                 {% if current_user.role == 'admin' %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('admin.admin_home') }}">
-                        <i class="bi bi-gear"></i> Admin
+                        <i class="bi bi-gear-fill"></i> Admin
                     </a>
                 </li>
                 {% endif %}
@@ -56,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('auth.register') }}">
-                        <i class="bi bi-person-plus"></i> Register
+                        <i class="bi bi-person-plus-fill"></i> Register
                     </a>
                 </li>
                 {% endif %}
@@ -65,26 +66,39 @@
     </div>
 </nav>
 
-<div class="container mt-4">
+<div id="loading-overlay">
+    <div class="spinner-ring"></div>
+    <p class="loading-text">Analyzing compliance<span class="loading-dots"></span></p>
+</div>
+
+<main class="container mt-4">
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert" id="flash-msg">
+                <div class="alert-custom {{ category }} animate-slide-up" id="flash-msg">
+                    {% if category == 'success' %}
+                        <i class="bi bi-check-circle-fill"></i>
+                    {% elif category == 'danger' %}
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    {% elif category == 'warning' %}
+                        <i class="bi bi-exclamation-circle-fill"></i>
+                    {% else %}
+                        <i class="bi bi-info-circle-fill"></i>
+                    {% endif %}
                     {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
     {% block content %}{% endblock %}
-</div>
+</main>
 
-<footer class="footer mt-5 py-3 bg-light">
+<footer class="footer-custom">
     <div class="container text-center">
-        <span class="text-muted">
-            <i class="bi bi-shield-check text-success"></i>
-            NDPA Compliance Checker &copy; 2025 | Final Year HND Project
+        <span>
+            <i class="bi bi-shield-check" style="color: var(--accent);"></i>
+            NDPA Compliance Checker &copy; 2026 | AI-Driven Regulatory Compliance
         </span>
     </div>
 </footer>

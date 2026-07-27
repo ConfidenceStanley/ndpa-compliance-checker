@@ -1,61 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h4>
-        <i class="bi bi-speedometer2 text-success"></i>
-        Welcome, {{ current_user.username }}
-    </h4>
-    <a href="{{ url_for('compliance.upload') }}" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> New Compliance Check
+<div class="dashboard-header animate-slide-up">
+    <div>
+        <h4><i class="bi bi-grid-1x2-fill" style="color: var(--accent);"></i> Dashboard</h4>
+        <p class="greeting">Welcome back, {{ current_user.username }}. Here is your compliance overview.</p>
+    </div>
+    <a href="{{ url_for('compliance.upload') }}" class="btn-glow">
+        <i class="bi bi-plus-circle-fill"></i> New Scan
     </a>
 </div>
 
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 text-center p-3">
-            <h2 class="text-success fw-bold">{{ total_checks }}</h2>
-            <p class="text-muted mb-0">
-                <i class="bi bi-file-earmark-text"></i> Total Checks
-            </p>
+<div class="row g-4 mb-4">
+    <div class="col-md-4 animate-slide-up-delay-1">
+        <div class="stat-card">
+            <div class="stat-icon green"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <div class="stat-value" style="color: var(--accent);">{{ total_checks }}</div>
+            <div class="stat-label">Total Scans</div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 text-center p-3">
-            <h2 class="fw-bold
-                {% if average_score >= 70 %}text-success
-                {% elif average_score >= 40 %}text-warning
-                {% else %}text-danger{% endif %}">
+    <div class="col-md-4 animate-slide-up-delay-2">
+        <div class="stat-card">
+            <div class="stat-icon blue"><i class="bi bi-graph-up"></i></div>
+            <div class="stat-value
+                {% if average_score >= 70 %}" style="color: #34d399;
+                {% elif average_score >= 40 %}" style="color: #fbbf24;
+                {% else %}" style="color: #f87171;{% endif %}">
                 {{ average_score }}%
-            </h2>
-            <p class="text-muted mb-0">
-                <i class="bi bi-graph-up"></i> Average Score
-            </p>
+            </div>
+            <div class="stat-label">Average Score</div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card shadow-sm border-0 text-center p-3">
-            <h2 class="text-success fw-bold">
-                <i class="bi bi-shield-check" style="font-size:2rem;"></i>
-            </h2>
-            <p class="text-muted mb-0">NDPA 2023 Loaded</p>
+    <div class="col-md-4 animate-slide-up-delay-3">
+        <div class="stat-card">
+            <div class="stat-icon purple"><i class="bi bi-shield-fill-check"></i></div>
+            <div class="stat-value" style="color: #a78bfa;">NDPA</div>
+            <div class="stat-label">2023 Regulation Loaded</div>
         </div>
     </div>
 </div>
 
-<div class="card shadow-sm border-0">
-    <div class="card-header bg-white">
-        <h6 class="mb-0">
-            <i class="bi bi-clock-history text-success"></i> Recent Compliance Checks
-        </h6>
+<div class="data-card animate-fade-in">
+    <div class="data-card-header">
+        <h6><i class="bi bi-clock-history" style="color: var(--accent);"></i> Recent Compliance Scans</h6>
     </div>
-    <div class="card-body">
+    <div class="data-card-body">
         {% if recent_reports %}
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-light">
+            <table class="table-dark-custom table">
+                <thead>
                     <tr>
-                        <th>File Name</th>
+                        <th>Document</th>
                         <th>Score</th>
                         <th>Status</th>
                         <th>Date</th>
@@ -66,34 +61,36 @@
                     {% for report in recent_reports %}
                     <tr>
                         <td>
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <i class="bi bi-file-earmark-pdf-fill" style="color: #f87171;"></i>
                             {{ report.file_name }}
                         </td>
                         <td>
-                            <div class="progress" style="height:20px; width:120px;">
-                                <div class="progress-bar
-                                    {% if report.compliance_score >= 70 %}bg-success
-                                    {% elif report.compliance_score >= 40 %}bg-warning
-                                    {% else %}bg-danger{% endif %}"
-                                    style="width: {{ report.compliance_score }}%">
-                                    {{ report.compliance_score }}%
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div class="progress-custom">
+                                    <div class="progress-bar-custom
+                                        {% if report.compliance_score >= 70 %}green
+                                        {% elif report.compliance_score >= 40 %}yellow
+                                        {% else %}red{% endif %}"
+                                        style="width: {{ report.compliance_score }}%">
+                                    </div>
                                 </div>
+                                <span style="font-weight:600; font-size:0.85rem;">{{ report.compliance_score }}%</span>
                             </div>
                         </td>
                         <td>
                             {% if report.compliance_score >= 70 %}
-                                <span class="badge bg-success">Pass</span>
+                                <span class="badge-custom badge-success">Compliant</span>
                             {% elif report.compliance_score >= 40 %}
-                                <span class="badge bg-warning text-dark">Partial</span>
+                                <span class="badge-custom badge-warning">Partial</span>
                             {% else %}
-                                <span class="badge bg-danger">Fail</span>
+                                <span class="badge-custom badge-danger">Non-Compliant</span>
                             {% endif %}
                         </td>
-                        <td>{{ report.date_checked.strftime('%d %b %Y') }}</td>
+                        <td style="color: var(--text-muted);">{{ report.date_checked.strftime('%d %b %Y') }}</td>
                         <td>
                             <a href="{{ url_for('compliance.view_report', report_id=report.id) }}"
-                               class="btn btn-sm btn-outline-success">
-                                <i class="bi bi-eye"></i> View
+                               class="btn-outline-custom">
+                                <i class="bi bi-eye-fill"></i> View
                             </a>
                         </td>
                     </tr>
@@ -102,11 +99,13 @@
             </table>
         </div>
         {% else %}
-        <div class="text-center py-5 text-muted">
-            <i class="bi bi-inbox" style="font-size: 3rem;"></i>
-            <p class="mt-2">No compliance checks yet.</p>
-            <a href="{{ url_for('compliance.upload') }}" class="btn btn-success">
-                Run Your First Check
+        <div class="empty-state">
+            <div class="empty-icon animate-float">
+                <i class="bi bi-inbox"></i>
+            </div>
+            <p>No compliance scans yet. Run your first scan to get started.</p>
+            <a href="{{ url_for('compliance.upload') }}" class="btn-glow">
+                <i class="bi bi-rocket-takeoff-fill"></i> Run First Scan
             </a>
         </div>
         {% endif %}
