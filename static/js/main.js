@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             msg.style.transform = 'translateY(-10px)';
             setTimeout(function () { msg.remove(); }, 400);
         });
-    }, 5000);
+    }, 8000);
 
     // Loading overlay
     var uploadForm = document.getElementById('upload-form');
