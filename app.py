@@ -31,8 +31,9 @@ def create_app():
     app.register_blueprint(admin)
 
     with app.app_context():
+        from models.compliance import NdpaRule, ComplianceReport
         db.create_all()
-        seed_ndpa_rules()
+        seed_ndpa_rules(app)
 
     return app
 
@@ -42,23 +43,24 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-def seed_ndpa_rules():
+def seed_ndpa_rules(app):
     from models.compliance import NdpaRule
-    if NdpaRule.query.count() == 0:
-        rules_path = os.path.join(os.path.dirname(__file__), 'data', 'ndpa_rules.json')
-        with open(rules_path, 'r') as f:
-            rules = json.load(f)
-        for rule in rules:
-            new_rule = NdpaRule(
-                section=rule['section'],
-                rule_text=rule['rule_text'],
-                rule_type=rule['rule_type']
-            )
-            db.session.add(new_rule)
-        db.session.commit()
-        print(f"Seeded {len(rules)} NDPA rules into database.")
-    else:
-        print("NDPA rules already seeded.")
+    with app.app_context():
+        if NdpaRule.query.count() == 0:
+            rules_path = os.path.join(os.path.dirname(__file__), 'data', 'ndpa_rules.json')
+            with open(rules_path, 'r') as f:
+                rules = json.load(f)
+            for rule in rules:
+                new_rule = NdpaRule(
+                    section=rule['section'],
+                    rule_text=rule['rule_text'],
+                    rule_type=rule['rule_type']
+                )
+                db.session.add(new_rule)
+            db.session.commit()
+            print(f"Seeded {len(rules)} NDPA rules into database.")
+        else:
+            print("NDPA rules already seeded.")
 
 
 if __name__ == '__main__':
