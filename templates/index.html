@@ -23,13 +23,22 @@
                 you pass, which you fail, and what to fix before regulators
                 come knocking.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions animate-slide-up-d3">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('compliance.upload') }}" class="btn-primary-green btn-hero">
+                    <i class="bi bi-cloud-arrow-up-fill"></i> Run Compliance Scan
+                </a>
+                <a href="{{ url_for('dashboard.home') }}" class="btn-outline-green btn-hero">
+                    <i class="bi bi-grid-1x2-fill"></i> Go To Dashboard
+                </a>
+                {% else %}
                 <a href="{{ url_for('auth.register') }}" class="btn-primary-green btn-hero">
                     <i class="bi bi-rocket-takeoff-fill"></i> Start Free Check
                 </a>
                 <a href="{{ url_for('auth.login') }}" class="btn-outline-green btn-hero">
                     <i class="bi bi-box-arrow-in-right"></i> Sign In
                 </a>
+                {% endif %}
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
@@ -548,13 +557,23 @@
                 Nigerians can trust.
             </p>
             <div class="cta-actions">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('compliance.upload') }}" class="btn-primary-green btn-hero">
+                    <i class="bi bi-cloud-arrow-up-fill"></i> Run Compliance Scan
+                </a>
+                <a href="{{ url_for('dashboard.home') }}" class="btn-outline-green btn-hero"
+                style="border-color: rgba(255,255,255,0.4); color:white;">
+                    <i class="bi bi-grid-1x2-fill"></i> Go To Dashboard
+                </a>
+                {% else %}
                 <a href="{{ url_for('auth.register') }}" class="btn-primary-green btn-hero">
                     <i class="bi bi-rocket-takeoff-fill"></i> Get Started Free
                 </a>
                 <a href="{{ url_for('auth.login') }}" class="btn-outline-green btn-hero"
-                   style="border-color: rgba(255,255,255,0.4); color:white;">
+                style="border-color: rgba(255,255,255,0.4); color:white;">
                     <i class="bi bi-box-arrow-in-right"></i> Already Have Account
                 </a>
+                {% endif %}
             </div>
             <p style="color:rgba(255,255,255,0.6); font-size:0.8rem; margin-top:1rem; margin-bottom:0;">
                 No payment required. No legal knowledge needed. Upload and get results instantly.
