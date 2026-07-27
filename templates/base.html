@@ -10,53 +10,53 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg" id="main-navbar">
+<nav class="navbar navbar-expand-lg navbar-custom" id="main-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{ url_for('auth.index') }}">
-            <span class="brand-icon"><i class="bi bi-shield-check"></i></span>
+        <a class="navbar-brand-custom" href="{{ url_for('auth.index') }}">
+            <span class="brand-icon-box"><i class="bi bi-shield-check"></i></span>
             NDPA Checker
         </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <i class="bi bi-list text-white" style="font-size:1.5rem;"></i>
+        <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-list" style="font-size:1.3rem; color: var(--text-dark);"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('dashboard.home') }}">
+                    <a class="nav-link-custom" href="{{ url_for('dashboard.home') }}">
                         <i class="bi bi-grid-1x2-fill"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('compliance.upload') }}">
+                    <a class="nav-link-custom" href="{{ url_for('compliance.upload') }}">
                         <i class="bi bi-cloud-arrow-up-fill"></i> Scan
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('history.view_history') }}">
+                    <a class="nav-link-custom" href="{{ url_for('history.view_history') }}">
                         <i class="bi bi-clock-history"></i> History
                     </a>
                 </li>
                 {% if current_user.role == 'admin' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('admin.admin_home') }}">
+                    <a class="nav-link-custom" href="{{ url_for('admin.admin_home') }}">
                         <i class="bi bi-gear-fill"></i> Admin
                     </a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.logout') }}">
+                    <a class="nav-link-custom" href="{{ url_for('auth.logout') }}">
                         <i class="bi bi-box-arrow-right"></i> Logout
                     </a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.login') }}">
+                    <a class="nav-link-custom" href="{{ url_for('auth.login') }}">
                         <i class="bi bi-box-arrow-in-right"></i> Login
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.register') }}">
+                    <a class="nav-link-custom" href="{{ url_for('auth.register') }}">
                         <i class="bi bi-person-plus-fill"></i> Register
                     </a>
                 </li>
@@ -75,7 +75,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-                <div class="alert-custom {{ category }} animate-slide-up" id="flash-msg">
+                <div class="alert-custom {{ category }}" id="flash-msg">
                     {% if category == 'success' %}
                         <i class="bi bi-check-circle-fill"></i>
                     {% elif category == 'danger' %}
@@ -86,6 +86,9 @@
                         <i class="bi bi-info-circle-fill"></i>
                     {% endif %}
                     {{ message }}
+                    <button class="alert-dismiss" onclick="this.parentElement.remove()">
+                        <i class="bi bi-x"></i>
+                    </button>
                 </div>
             {% endfor %}
         {% endif %}
@@ -97,7 +100,7 @@
 <footer class="footer-custom">
     <div class="container text-center">
         <span>
-            <i class="bi bi-shield-check" style="color: var(--accent);"></i>
+            <i class="bi bi-shield-check" style="color: var(--primary);"></i>
             NDPA Compliance Checker &copy; 2026 | AI-Driven Regulatory Compliance
         </span>
     </div>

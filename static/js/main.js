@@ -2,51 +2,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Auto dismiss flash messages
     setTimeout(function () {
-        var flashMsgs = document.querySelectorAll('#flash-msg');
-        flashMsgs.forEach(function (msg) {
-            msg.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        var msgs = document.querySelectorAll('#flash-msg');
+        msgs.forEach(function (msg) {
+            msg.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
             msg.style.opacity = '0';
             msg.style.transform = 'translateY(-10px)';
-            setTimeout(function () { msg.remove(); }, 500);
+            setTimeout(function () { msg.remove(); }, 400);
         });
     }, 5000);
 
-    // Loading overlay on form submit
+    // Loading overlay
     var uploadForm = document.getElementById('upload-form');
     if (uploadForm) {
         uploadForm.addEventListener('submit', function () {
             var overlay = document.getElementById('loading-overlay');
-            if (overlay) {
-                overlay.style.display = 'flex';
-            }
+            if (overlay) overlay.style.display = 'flex';
         });
     }
 
-    // Navbar scroll effect
+    // Navbar scroll
     window.addEventListener('scroll', function () {
         var navbar = document.getElementById('main-navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (navbar) {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
     });
 
-    // Animate stat values counting up
+    // Count up animation
     var statValues = document.querySelectorAll('.stat-value');
     statValues.forEach(function (el) {
         var text = el.textContent.trim();
         var num = parseFloat(text);
-        if (!isNaN(num) && num > 0) {
-            var suffix = text.replace(num.toString(), '');
-            var duration = 1500;
+        if (!isNaN(num) && num > 0 && text.match(/^[\d.]+%?$/)) {
+            var suffix = text.includes('%') ? '%' : '';
+            var duration = 1200;
             var startTime = null;
-            var startVal = 0;
 
-            function animate(currentTime) {
-                if (!startTime) startTime = currentTime;
-                var progress = Math.min((currentTime - startTime) / duration, 1);
-                var current = Math.floor(progress * num);
+            function animate(ts) {
+                if (!startTime) startTime = ts;
+                var progress = Math.min((ts - startTime) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = Math.floor(eased * num);
                 el.textContent = current + suffix;
                 if (progress < 1) {
                     requestAnimationFrame(animate);
@@ -58,3 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Password toggle
+function togglePassword(inputId, btn) {
+    var input = document.getElementById(inputId);
+    var icon = btn.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+    }
+}
