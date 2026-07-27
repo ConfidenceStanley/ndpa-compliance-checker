@@ -1,0 +1,61 @@
+SOFTWARE: HealthBridge Patient Management System
+VERSION: 1.0
+DEVELOPER: HealthBridge Technologies Ltd
+
+DATA COLLECTION:
+The system collects patient full name, email address,
+phone number, date of birth, and medical history.
+The system also collects health insurance details
+and next of kin information.
+Users must provide consent via a checkbox before
+their data is collected and processed.
+The consent form clearly states the purpose of
+data collection.
+
+SECURITY:
+All passwords are hashed using bcrypt before storage.
+The system uses HTTPS for all data transmission.
+However the system does not use encryption for
+stored patient records in the database.
+There are no access controls on the admin panel.
+Any staff member can access all patient records
+without restriction.
+
+DATA BREACH:
+The system has no formal data breach notification plan.
+Users and regulators are not notified in the event
+of a data breach.
+
+USER RIGHTS:
+Patients can request access to their medical records
+through the patient portal.
+Patients can correct their personal information
+through the profile settings page.
+There is no mechanism for patients to delete
+their account or personal data.
+Patients cannot withdraw their consent once given.
+
+DATA STORAGE:
+Patient data is stored on servers in Frankfurt Germany.
+No data transfer agreements are in place for this
+international transfer.
+Data is retained for 10 years regardless of whether
+the patient is still active.
+
+DATA SHARING:
+The system does not sell patient data to third parties.
+Patient data is shared with insurance companies
+without explicit patient consent.
+A privacy policy is published on the website
+explaining data collection practices.
+
+THIRD PARTY:
+No written data processing agreements exist with
+third party service providers.
+The system uses Google Analytics which places
+tracking cookies without user consent.
+
+COMPLIANCE:
+No Data Protection Officer has been appointed.
+No Data Protection Impact Assessment has been
+conducted despite processing sensitive health data.
