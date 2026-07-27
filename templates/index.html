@@ -1,40 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="hero-section animate-slide-up">
+
+<!-- ===== HERO SECTION ===== -->
+<div class="hero-section">
     <div class="row align-items-center min-vh-hero">
-        <div class="col-lg-6">
-            <div class="hero-badge animate-slide-up-d1">
+        <div class="col-lg-6 animate-slide-up">
+            <div class="hero-badge">
                 <i class="bi bi-shield-fill-check"></i>
                 Nigeria Data Protection Act 2023
             </div>
-            <h1 class="hero-title animate-slide-up-d1">
-                Automated NDPA
-                <span class="hero-title-accent">Compliance</span>
-                Checker
+            <h1 class="hero-title">
+                Check If Your Software
+                <span class="hero-title-accent">Complies</span>
+                With Nigerian Law
             </h1>
-            <p class="hero-subtitle animate-slide-up-d2">
-                Upload your software document and get an instant AI-powered
-                compliance report against the Nigeria Data Protection Act 2023.
-                Know exactly where you stand before regulators do.
+            <p class="hero-subtitle">
+                The NDPA Compliance Checker uses Artificial Intelligence to
+                automatically read your software document and check it against
+                the Nigeria Data Protection Act 2023. Get a full compliance
+                report in minutes instead of weeks. Know exactly which rules
+                you pass, which you fail, and what to fix before regulators
+                come knocking.
             </p>
-            <div class="hero-actions animate-slide-up-d3">
+            <div class="hero-actions">
                 <a href="{{ url_for('auth.register') }}" class="btn-primary-green btn-hero">
-                    <i class="bi bi-rocket-takeoff-fill"></i> Get Started Free
+                    <i class="bi bi-rocket-takeoff-fill"></i> Start Free Check
                 </a>
                 <a href="{{ url_for('auth.login') }}" class="btn-outline-green btn-hero">
                     <i class="bi bi-box-arrow-in-right"></i> Sign In
                 </a>
             </div>
-            <div class="hero-stats animate-slide-up-d3">
+            <div class="hero-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-value">35+</span>
-                    <span class="hero-stat-label">NDPA Rules</span>
+                    <span class="hero-stat-label">NDPA Rules Checked</span>
                 </div>
                 <div class="hero-stat-divider"></div>
                 <div class="hero-stat">
                     <span class="hero-stat-value">AI</span>
-                    <span class="hero-stat-label">Powered</span>
+                    <span class="hero-stat-label">NLP Powered</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">PDF</span>
+                    <span class="hero-stat-label">Report Download</span>
                 </div>
                 <div class="hero-stat-divider"></div>
                 <div class="hero-stat">
@@ -43,106 +53,514 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 d-none d-lg-flex justify-content-center animate-slide-up-d2">
-            <div class="hero-visual">
-                <div class="hero-card-float hero-card-1">
-                    <i class="bi bi-check-circle-fill" style="color:#16a34a;"></i>
-                    <span>Consent Mechanism</span>
-                    <span class="hc-badge pass">Compliant</span>
+        <div class="col-lg-6 animate-slide-up-d2">
+            <div class="hero-image-wrapper">
+                <img
+                    src="{{ url_for('static', filename='images/hero-bg.jpg') }}"
+                    alt="NDPA Compliance Checker"
+                    class="hero-main-image"
+                    onerror="this.style.display='none'"
+                >
+                <div class="hero-image-overlay"></div>
+                <div class="floating-card fc-top-left">
+                    <div class="fc-icon green">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <div class="fc-content">
+                        <div class="fc-title">Consent Mechanism</div>
+                        <div class="fc-badge pass">Compliant</div>
+                    </div>
                 </div>
-                <div class="hero-card-float hero-card-2">
-                    <i class="bi bi-x-circle-fill" style="color:#dc2626;"></i>
-                    <span>Data Encryption</span>
-                    <span class="hc-badge fail">Non-Compliant</span>
+                <div class="floating-card fc-top-right">
+                    <div class="fc-icon red">
+                        <i class="bi bi-x-circle-fill"></i>
+                    </div>
+                    <div class="fc-content">
+                        <div class="fc-title">Data Encryption</div>
+                        <div class="fc-badge fail">Non-Compliant</div>
+                    </div>
                 </div>
-                <div class="hero-card-float hero-card-3">
-                    <i class="bi bi-shield-fill-check" style="color:#16a34a; font-size:3rem;"></i>
-                    <div style="font-size:1.5rem; font-weight:800; color:#0f172a;">72%</div>
-                    <div style="font-size:0.8rem; color:#64748b;">Compliance Score</div>
+                <div class="floating-card fc-bottom-left">
+                    <div class="fc-icon yellow">
+                        <i class="bi bi-question-circle-fill"></i>
+                    </div>
+                    <div class="fc-content">
+                        <div class="fc-title">Data Officer</div>
+                        <div class="fc-badge warn">Not Addressed</div>
+                    </div>
                 </div>
-                <div class="hero-card-float hero-card-4">
-                    <i class="bi bi-question-circle-fill" style="color:#d97706;"></i>
-                    <span>Data Officer</span>
-                    <span class="hc-badge warn">Not Addressed</span>
+                <div class="floating-card fc-bottom-right">
+                    <div class="fc-score-inner">
+                        <i class="bi bi-shield-fill-check" style="color:var(--primary); font-size:1.8rem;"></i>
+                        <div class="fc-score-num">72%</div>
+                        <div class="fc-score-label">Compliance Score</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="features-section animate-fade-in">
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon" style="background:#f0fdf4; color:#16a34a;">
-                    <i class="bi bi-cpu-fill"></i>
-                </div>
-                <h5 class="feature-title">AI Powered Analysis</h5>
-                <p class="feature-text">
-                    Uses advanced NLP sentence similarity models to match
-                    your software document against NDPA 2023 rules automatically.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon" style="background:#eff6ff; color:#2563eb;">
-                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
-                </div>
-                <h5 class="feature-title">Detailed Reports</h5>
-                <p class="feature-text">
-                    Get clear compliance reports showing exactly which rules
-                    pass, which fail, and specific recommendations for each issue.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon" style="background:#f5f3ff; color:#7c3aed;">
+<!-- ===== PROBLEM SECTION ===== -->
+<div class="problem-section">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Why Manual Compliance Checking Fails</h2>
+    <p class="section-subtitle">
+        Nigerian businesses face serious risks when checking NDPA compliance manually.
+        The law has over 65 sections and hundreds of sub-clauses that require expert
+        legal knowledge to interpret correctly.
+    </p>
+    <div class="row g-4 mt-2">
+        <div class="col-md-3">
+            <div class="problem-card">
+                <div class="problem-icon">
                     <i class="bi bi-clock-history"></i>
                 </div>
-                <h5 class="feature-title">Full History</h5>
-                <p class="feature-text">
-                    Track all your compliance checks over time.
-                    Download PDF reports and monitor your improvement
-                    with every update.
+                <h6>Takes Too Long</h6>
+                <p>Manual legal review of NDPA compliance can take weeks or months depending on the size of your software.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="bi bi-cash-coin"></i>
+                </div>
+                <h6>Costs Too Much</h6>
+                <p>Hiring legal experts to review compliance documents costs thousands of Naira per hour for most businesses.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+                <h6>Human Error</h6>
+                <p>Lawyers reading hundreds of pages miss critical details, especially on complex technical requirements.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="bi bi-currency-exchange"></i>
+                </div>
+                <h6>Heavy Fines</h6>
+                <p>Missing just one NDPA rule can lead to fines of up to N10 million or 2% of annual gross income.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SOLUTION SECTION ===== -->
+<div class="solution-section">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+            <div class="solution-image-wrapper">
+                <img
+                    src="{{ url_for('static', filename='images/feature-compliance.jpg') }}"
+                    alt="Compliance Solution"
+                    class="solution-image"
+                    onerror="this.style.display='none'"
+                >
+                <div class="solution-image-badge">
+                    <i class="bi bi-cpu-fill"></i>
+                    AI Powered Analysis
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="section-label">The Solution</div>
+            <h2 class="section-title text-start">How NDPA Checker Solves This</h2>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.8; margin-bottom:1.5rem;">
+                Our system uses Natural Language Processing and machine learning to
+                automatically read your software document and compare it against
+                every relevant rule in the Nigeria Data Protection Act 2023.
+                It works the same way a compliance lawyer reads a document but
+                does it in seconds instead of weeks.
+            </p>
+            <div class="solution-points">
+                <div class="solution-point">
+                    <div class="sp-icon">
+                        <i class="bi bi-check2-all"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h6>Reads Your Document Automatically</h6>
+                        <p>Upload any PDF or TXT file describing your software. The AI extracts and analyses every sentence.</p>
+                    </div>
+                </div>
+                <div class="solution-point">
+                    <div class="sp-icon">
+                        <i class="bi bi-check2-all"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h6>Matches Against NDPA Rules</h6>
+                        <p>The system compares your document against 35 carefully extracted NDPA 2023 compliance rules using AI similarity scoring.</p>
+                    </div>
+                </div>
+                <div class="solution-point">
+                    <div class="sp-icon">
+                        <i class="bi bi-check2-all"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h6>Gives Clear Verdicts</h6>
+                        <p>Each rule gets a clear verdict of Compliant, Non-Compliant, or Not Addressed with the exact sentence it matched.</p>
+                    </div>
+                </div>
+                <div class="solution-point">
+                    <div class="sp-icon">
+                        <i class="bi bi-check2-all"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h6>Tells You Exactly What To Fix</h6>
+                        <p>Every failed rule comes with a specific recommendation explaining exactly what needs to be done to fix it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== WHAT IS NDPA SECTION ===== -->
+<div class="ndpa-section">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+            <div class="section-label">About The Law</div>
+            <h2 class="section-title text-start">What Is The NDPA 2023?</h2>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.8; margin-bottom:1.2rem;">
+                The Nigeria Data Protection Act 2023 was signed into law by President
+                Bola Ahmed Tinubu in June 2023. It is the primary law regulating how
+                personal information is collected, stored, processed, and shared in Nigeria.
+                It replaced the old Nigeria Data Protection Regulation of 2019 and is
+                overseen by the Nigeria Data Protection Commission.
+            </p>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.8; margin-bottom:1.5rem;">
+                Any individual, business, or organisation that collects or processes
+                the personal data of Nigerian citizens is legally required to comply
+                with the NDPA 2023. This includes software applications, websites,
+                mobile apps, hospitals, banks, schools, and government agencies.
+            </p>
+            <div class="ndpa-rules-preview">
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>Data must only be collected with explicit user consent</span>
+                </div>
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>All stored personal data must be encrypted</span>
+                </div>
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>Data breaches must be reported within 72 hours</span>
+                </div>
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>Users must be able to delete their personal data</span>
+                </div>
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>Personal data must not be transferred abroad without safeguards</span>
+                </div>
+                <div class="ndpa-rule-item">
+                    <i class="bi bi-shield-check" style="color:var(--primary);"></i>
+                    <span>Fines of up to N10 million for non-compliance</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="solution-image-wrapper">
+                <img
+                    src="{{ url_for('static', filename='images/feature-law.jpg') }}"
+                    alt="Nigeria Data Protection Act"
+                    class="solution-image"
+                    onerror="this.style.display='none'"
+                >
+                <div class="solution-image-badge">
+                    <i class="bi bi-book-fill"></i>
+                    NDPA 2023
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FEATURES SECTION ===== -->
+<div class="features-section">
+    <div class="section-label text-center">Features</div>
+    <h2 class="section-title">Everything You Need For NDPA Compliance</h2>
+    <p class="section-subtitle">
+        Built specifically for Nigerian software developers, startups, and organisations
+        that need fast and affordable compliance checking.
+    </p>
+    <div class="row g-4 mt-2">
+        <div class="col-lg-4 col-md-6">
+            <div class="feature-card-v2">
+                <div class="fcv2-image-wrapper">
+                    <img
+                        src="{{ url_for('static', filename='images/feature-security.jpg') }}"
+                        alt="Security Analysis"
+                        class="fcv2-image"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+                <div class="fcv2-body">
+                    <div class="fcv2-icon" style="background:#f0fdf4; color:#16a34a;">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <h5 class="fcv2-title">AI Rule Matching</h5>
+                    <p class="fcv2-text">
+                        Uses the MiniLM sentence transformer model to find the
+                        best matching statement in your document for each NDPA
+                        rule. Returns similarity scores so you see how confident
+                        the AI is about each decision.
+                    </p>
+                    <div class="fcv2-tags">
+                        <span class="fcv2-tag">NLP</span>
+                        <span class="fcv2-tag">Sentence Similarity</span>
+                        <span class="fcv2-tag">MiniLM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="feature-card-v2">
+                <div class="fcv2-image-wrapper">
+                    <img
+                        src="{{ url_for('static', filename='images/feature-report.jpg') }}"
+                        alt="Detailed Reports"
+                        class="fcv2-image"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+                <div class="fcv2-body">
+                    <div class="fcv2-icon" style="background:#eff6ff; color:#2563eb;">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                    </div>
+                    <h5 class="fcv2-title">Detailed PDF Reports</h5>
+                    <p class="fcv2-text">
+                        Every compliance check generates a full PDF report
+                        showing your overall score, a verdict for each of the
+                        35 NDPA rules, the matched sentence from your document,
+                        and a specific recommendation for every issue found.
+                    </p>
+                    <div class="fcv2-tags">
+                        <span class="fcv2-tag">PDF Export</span>
+                        <span class="fcv2-tag">Full Report</span>
+                        <span class="fcv2-tag">Recommendations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="feature-card-v2">
+                <div class="fcv2-image-wrapper">
+                    <img
+                        src="{{ url_for('static', filename='images/about-team.jpg') }}"
+                        alt="History Tracking"
+                        class="fcv2-image"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+                <div class="fcv2-body">
+                    <div class="fcv2-icon" style="background:#f5f3ff; color:#7c3aed;">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                    <h5 class="fcv2-title">Compliance History</h5>
+                    <p class="fcv2-text">
+                        Every scan is saved to your account so you can track
+                        your compliance progress over time. View all past reports,
+                        compare scores, and download any previous report whenever
+                        you need it.
+                    </p>
+                    <div class="fcv2-tags">
+                        <span class="fcv2-tag">History Tracking</span>
+                        <span class="fcv2-tag">Progress</span>
+                        <span class="fcv2-tag">Archive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HOW IT WORKS SECTION ===== -->
+<div class="how-section">
+    <div class="section-label text-center">Process</div>
+    <h2 class="section-title">How It Works In 4 Simple Steps</h2>
+    <p class="section-subtitle">
+        From document upload to full compliance report in under 2 minutes.
+        No legal knowledge required.
+    </p>
+    <div class="how-timeline">
+        <div class="how-step animate-slide-up-d1">
+            <div class="how-step-number">1</div>
+            <div class="how-step-connector"></div>
+            <div class="how-step-card">
+                <div class="how-step-icon">
+                    <i class="bi bi-person-plus-fill"></i>
+                </div>
+                <h6>Create Your Account</h6>
+                <p>
+                    Register for free using your email address and password.
+                    No credit card required. Your account stores all your
+                    compliance history securely.
+                </p>
+            </div>
+        </div>
+        <div class="how-step animate-slide-up-d2">
+            <div class="how-step-number">2</div>
+            <div class="how-step-connector"></div>
+            <div class="how-step-card">
+                <div class="how-step-icon">
+                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                </div>
+                <h6>Upload Your Document</h6>
+                <p>
+                    Upload your Software Requirement Specification, Privacy
+                    Policy, System Architecture Document, or any document
+                    that describes how your software handles personal data.
+                    PDF and TXT formats accepted.
+                </p>
+            </div>
+        </div>
+        <div class="how-step animate-slide-up-d3">
+            <div class="how-step-number">3</div>
+            <div class="how-step-connector"></div>
+            <div class="how-step-card">
+                <div class="how-step-icon">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+                <h6>AI Analyses Your Document</h6>
+                <p>
+                    The system extracts text from your document and runs
+                    it through the MiniLM NLP model. It checks your document
+                    against all 35 NDPA 2023 rules and assigns each rule a
+                    compliance verdict with a similarity confidence score.
+                </p>
+            </div>
+        </div>
+        <div class="how-step animate-slide-up-d3">
+            <div class="how-step-number">4</div>
+            <div class="how-step-connector last"></div>
+            <div class="how-step-card">
+                <div class="how-step-icon">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                </div>
+                <h6>Get Your Full Report</h6>
+                <p>
+                    View your compliance score, browse all findings with
+                    colour coded status indicators, read specific fix
+                    recommendations for every issue, and download your
+                    complete report as a professional PDF document.
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="how-section animate-fade-in">
-    <h4 class="section-title">How It Works</h4>
-    <div class="row g-4 justify-content-center">
-        <div class="col-md-3">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h6>Create Account</h6>
-                <p>Register for free and log in to your compliance dashboard.</p>
+<!-- ===== WHAT CAN YOU UPLOAD SECTION ===== -->
+<div class="upload-types-section">
+    <div class="section-label text-center">Supported Documents</div>
+    <h2 class="section-title">What Documents Can You Upload?</h2>
+    <p class="section-subtitle">
+        You do not need to be a lawyer to use this system. Upload any document
+        that describes your software and how it handles personal data.
+    </p>
+    <div class="row g-3 mt-2">
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>Software Requirement Specification</h6>
+                    <p>A formal document describing what your software does, what data it collects, security features, and system architecture.</p>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h6>Upload Document</h6>
-                <p>Upload your SRS, privacy policy, or any software document as PDF or TXT.</p>
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-file-earmark-lock-fill"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>Privacy Policy</h6>
+                    <p>The document your users read that explains how their personal data is collected, stored, used, and protected.</p>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h6>AI Analysis</h6>
-                <p>The system checks your document against 35 NDPA 2023 rules automatically.</p>
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-diagram-3-fill"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>System Architecture Document</h6>
+                    <p>A technical document describing your database design, data flow, API connections, and security infrastructure.</p>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h6>Get Report</h6>
-                <p>View your compliance score, detailed findings, and download your PDF report.</p>
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-file-earmark-richtext-fill"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>Data Handling Policy</h6>
+                    <p>An internal policy document that describes how your team collects, processes, stores, and disposes of personal data.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-card-checklist"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>Feature Description Document</h6>
+                    <p>A document listing your software features including user registration, data collection forms, and account management.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="upload-type-card">
+                <div class="utc-icon">
+                    <i class="bi bi-file-earmark-code-fill"></i>
+                </div>
+                <div class="utc-content">
+                    <h6>Technical Design Document</h6>
+                    <p>Any document that explains your software design decisions including how you handle consent, encryption, and user rights.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- ===== CTA SECTION ===== -->
+<div class="cta-section">
+    <div class="cta-card">
+        <div class="cta-inner">
+            <div class="cta-icon animate-float">
+                <i class="bi bi-shield-fill-check"></i>
+            </div>
+            <h2 class="cta-title">Ready To Check Your Compliance?</h2>
+            <p class="cta-subtitle">
+                Join Nigerian developers and organisations using NDPA Checker
+                to stay compliant, avoid fines, and build software that
+                Nigerians can trust.
+            </p>
+            <div class="cta-actions">
+                <a href="{{ url_for('auth.register') }}" class="btn-primary-green btn-hero">
+                    <i class="bi bi-rocket-takeoff-fill"></i> Get Started Free
+                </a>
+                <a href="{{ url_for('auth.login') }}" class="btn-outline-green btn-hero"
+                   style="border-color: rgba(255,255,255,0.4); color:white;">
+                    <i class="bi bi-box-arrow-in-right"></i> Already Have Account
+                </a>
+            </div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.8rem; margin-top:1rem; margin-bottom:0;">
+                No payment required. No legal knowledge needed. Upload and get results instantly.
+            </p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
