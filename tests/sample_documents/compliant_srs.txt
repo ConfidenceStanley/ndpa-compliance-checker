@@ -1,0 +1,40 @@
+SOFTWARE: EduTrack Student Management System
+VERSION: 1.0
+
+DATA COLLECTION:
+The system collects student full name, email address, phone number and matric number only.
+The system does not collect unnecessary personal data beyond what is required for registration.
+Users must provide explicit consent via a checkbox before any data is collected.
+The consent checkbox clearly states the purpose of data collection.
+
+SECURITY:
+All passwords are hashed using bcrypt before storage.
+The system uses HTTPS for all data transmission.
+The database is protected by a firewall and role-based access controls.
+Only authorised staff members can access the database.
+All access to personal data is logged for audit purposes.
+The system uses AES-256 encryption for stored personal data.
+
+DATA BREACH:
+The system has a breach notification protocol.
+In the event of a data breach, the Nigeria Data Protection Commission and affected users will be notified within 72 hours.
+
+USER RIGHTS:
+Users can request access to their personal data through the profile settings page.
+Users can correct or update their personal data at any time.
+Users can delete their account and all associated data through the settings menu.
+Users can withdraw their consent at any time by contacting support.
+
+DATA STORAGE:
+All personal data is stored on servers located in Lagos, Nigeria.
+Data is not transferred to any foreign country.
+Data is retained only for the duration of the user account.
+Personal data is deleted within 30 days of account deletion.
+
+PRIVACY:
+The system has a published privacy policy accessible from the homepage.
+The privacy policy explains what data is collected, how it is used, and user rights.
+
+DATA SHARING:
+The system does not sell personal data to third parties.
+Data is not shared with any external organisations without explicit consent.

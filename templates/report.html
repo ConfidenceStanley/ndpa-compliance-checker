@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header animate-slide-up">
+    <div>
+        <h4><i class="bi bi-file-earmark-bar-graph-fill" style="color: var(--primary);"></i> Compliance Report</h4>
+        <p class="subtitle">{{ report.file_name }} &mdash; {{ report.date_checked.strftime('%d %B %Y') }}</p>
+    </div>
+    <div style="display:flex; gap:8px;">
+        <a href="{{ url_for('compliance.download_report', report_id=report.id) }}" class="btn-primary-green">
+            <i class="bi bi-download"></i> Download PDF
+        </a>
+        <a href="{{ url_for('compliance.upload') }}" class="btn-outline-green">
+            <i class="bi bi-plus-circle"></i> New Scan
+        </a>
+    </div>
+</div>
+
+<div class="report-header-card animate-slide-up-d1">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+            <h5 style="font-weight:700; margin-bottom:0.3rem;">Overall Compliance Score</h5>
+            <p style="opacity:0.85; font-size:0.875rem; margin:0;">
+                Checked against {{ report.total_rules }} NDPA 2023 rules
+            </p>
+            <div style="display:flex; gap:1.5rem; margin-top:1rem; flex-wrap:wrap;">
+                <div>
+                    <div style="font-size:1.3rem; font-weight:700;">{{ report.compliant_count }}</div>
+                    <div style="font-size:0.75rem; opacity:0.8;">Compliant</div>
+                </div>
+                <div>
+                    <div style="font-size:1.3rem; font-weight:700;">{{ report.non_compliant_count }}</div>
+                    <div style="font-size:0.75rem; opacity:0.8;">Non-Compliant</div>
+                </div>
+                <div>
+                    <div style="font-size:1.3rem; font-weight:700;">{{ report.not_addressed_count }}</div>
+                    <div style="font-size:0.75rem; opacity:0.8;">Not Addressed</div>
+                </div>
+            </div>
+        </div>
+        <div class="report-score-circle">
+            <span class="score-num">{{ report.compliance_score }}</span>
+            <span class="score-pct">% Score</span>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4 animate-slide-up-d2">
+    <div class="col-md-4">
+        <div class="stat-card" style="background:#f0fdf4; border-color:#bbf7d0;">
+            <div class="stat-icon-box green"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="stat-value" style="color:#16a34a;">{{ report.compliant_count }}</div>
+            <div class="stat-label">Rules Compliant</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card" style="background:#fef2f2; border-color:#fecaca;">
+            <div class="stat-icon-box" style="background:#fee2e2; color:#dc2626;">
+                <i class="bi bi-x-circle-fill"></i>
+            </div>
+            <div class="stat-value" style="color:#dc2626;">{{ report.non_compliant_count }}</div>
+            <div class="stat-label">Non-Compliant</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card" style="background:#fffbeb; border-color:#fde68a;">
+            <div class="stat-icon-box" style="background:#fef3c7; color:#d97706;">
+                <i class="bi bi-question-circle-fill"></i>
+            </div>
+            <div class="stat-value" style="color:#d97706;">{{ report.not_addressed_count }}</div>
+            <div class="stat-label">Not Addressed</div>
+        </div>
+    </div>
+</div>
+
+<div class="data-card animate-fade-in">
+    <div class="data-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+        <h6><i class="bi bi-list-check" style="color: var(--primary);"></i> Detailed Findings</h6>
+        <div style="display:flex; gap:8px;">
+            <button class="btn-outline-green" onclick="filterResults('all')" id="btn-all">All</button>
+            <button class="btn-outline-green" onclick="filterResults('COMPLIANT')" id="btn-compliant">Compliant</button>
+            <button class="btn-outline-green" onclick="filterResults('NON-COMPLIANT')" id="btn-noncompliant">Issues</button>
+        </div>
+    </div>
+    <div style="padding: 1rem;">
+        {% for result in results %}
+        <div class="finding-card" data-status="{{ result.status }}">
+            <div class="finding-card-header
+                {% if result.status == 'COMPLIANT' %}compliant
+                {% elif result.status == 'NON-COMPLIANT' %}non-compliant
+                {% else %}not-addressed{% endif %}">
+                <div style="display:flex; align-items:center; gap:10px; flex:1;">
+                    {% if result.status == 'COMPLIANT' %}
+                        <i class="bi bi-check-circle-fill" style="color:#16a34a; font-size:1.1rem;"></i>
+                    {% elif result.status == 'NON-COMPLIANT' %}
+                        <i class="bi bi-x-circle-fill" style="color:#dc2626; font-size:1.1rem;"></i>
+                    {% else %}
+                        <i class="bi bi-question-circle-fill" style="color:#d97706; font-size:1.1rem;"></i>
+                    {% endif %}
+                    <span style="font-weight:600; font-size:0.85rem; color:var(--text-dark);">
+                        {{ result.section }}
+                    </span>
+                    <span class="status-badge
+                        {% if result.rule_type == 'OBLIGATION' %}pass
+                        {% elif result.rule_type == 'PROHIBITION' %}fail
+                        {% else %}partial{% endif %}"
+                        style="font-size:0.68rem;">
+                        {{ result.rule_type }}
+                    </span>
+                </div>
+                <span class="status-badge
+                    {% if result.status == 'COMPLIANT' %}pass
+                    {% elif result.status == 'NON-COMPLIANT' %}fail
+                    {% else %}partial{% endif %}">
+                    {{ result.status }}
+                </span>
+            </div>
+            <div class="finding-card-body">
+                <p class="finding-rule-text">
+                    <i class="bi bi-book-fill" style="color:var(--primary);"></i>
+                    {{ result.rule_text }}
+                </p>
+                <div class="finding-match-text">
+                    <i class="bi bi-chat-quote"></i>
+                    <strong>Matched:</strong> {{ result.matched_sentence[:200] }}{% if result.matched_sentence|length > 200 %}...{% endif %}
+                    <span style="float:right; font-size:0.75rem; color:var(--text-muted);">
+                        Score: {{ (result.similarity_score * 100)|round(1) }}%
+                    </span>
+                </div>
+                {% if result.status != 'COMPLIANT' %}
+                <div class="finding-recommendation">
+                    <i class="bi bi-lightbulb-fill" style="color:#3b82f6; flex-shrink:0; margin-top:1px;"></i>
+                    {{ result.recommendation }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+function filterResults(status) {
+    var cards = document.querySelectorAll('.finding-card');
+    cards.forEach(function(card) {
+        if (status === 'all') {
+            card.style.display = 'block';
+        } else {
+            card.style.display = card.dataset.status === status ? 'block' : 'none';
+        }
+    });
+}
+</script>
+{% endblock %}

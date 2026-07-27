@@ -1,0 +1,35 @@
+SOFTWARE: QuickShop E-commerce Platform
+VERSION: 2.0
+
+DATA COLLECTION:
+The system collects user full name, email, phone, home address, date of birth, BVN, and browsing history.
+There is no consent checkbox during registration.
+Users are automatically opted in to data collection when they create an account.
+
+SECURITY:
+Passwords are stored in plain text in the database.
+The system does not use HTTPS on all pages.
+There are no access controls on the database.
+Anyone with database credentials can access all user data.
+No encryption is used for stored personal data.
+
+DATA BREACH:
+There is no data breach notification plan.
+The system does not notify users or regulators in the event of a breach.
+
+USER RIGHTS:
+Users cannot request access to their personal data.
+There is no mechanism for users to delete their account.
+Users cannot correct or update their personal data.
+Users cannot withdraw consent once given.
+
+DATA STORAGE:
+All data is stored on servers in the United States.
+Data is also backed up on servers in the United Kingdom.
+No data transfer agreements are in place.
+Data is kept indefinitely with no deletion policy.
+
+DATA SHARING:
+User data is sold to third-party advertisers for profit.
+Data is shared with marketing companies without user consent.
+No privacy policy is published or accessible to users.

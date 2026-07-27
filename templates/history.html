@@ -1,4 +1,91 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h4>History coming soon</h4>
+<div class="page-header animate-slide-up">
+    <div>
+        <h4><i class="bi bi-clock-history" style="color: var(--primary);"></i> Compliance History</h4>
+        <p class="subtitle">All your previous compliance scans in one place.</p>
+    </div>
+    <a href="{{ url_for('compliance.upload') }}" class="btn-primary-green">
+        <i class="bi bi-plus-circle-fill"></i> New Scan
+    </a>
+</div>
+
+<div class="data-card animate-fade-in">
+    <div class="data-card-body">
+        {% if reports %}
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Document</th>
+                        <th>Score</th>
+                        <th>Status</th>
+                        <th>Rules</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                    <tr>
+                        <td>
+                            <i class="bi bi-file-earmark-pdf-fill" style="color:#ef4444;"></i>
+                            {{ report.file_name }}
+                        </td>
+                        <td>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div class="progress-slim">
+                                    <div class="progress-bar-fill
+                                        {% if report.compliance_score >= 70 %}green
+                                        {% elif report.compliance_score >= 40 %}yellow
+                                        {% else %}red{% endif %}"
+                                        style="width: {{ report.compliance_score }}%">
+                                    </div>
+                                </div>
+                                <span class="score-text">{{ report.compliance_score }}%</span>
+                            </div>
+                        </td>
+                        <td>
+                            {% if report.compliance_score >= 70 %}
+                                <span class="status-badge pass">Compliant</span>
+                            {% elif report.compliance_score >= 40 %}
+                                <span class="status-badge partial">Partial</span>
+                            {% else %}
+                                <span class="status-badge fail">Non-Compliant</span>
+                            {% endif %}
+                        </td>
+                        <td style="color:var(--text-muted); font-size:0.82rem;">
+                            {{ report.compliant_count }}✓
+                            {{ report.non_compliant_count }}✗
+                            {{ report.not_addressed_count }}?
+                        </td>
+                        <td style="color:var(--text-muted);">
+                            {{ report.date_checked.strftime('%d %b %Y') }}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('compliance.view_report', report_id=report.id) }}"
+                               class="btn-outline-green">
+                                <i class="bi bi-eye-fill"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-icon-box">
+                <i class="bi bi-clock-history"></i>
+            </div>
+            <h6>No history yet</h6>
+            <p>Your completed compliance scans will appear here.</p>
+            <a href="{{ url_for('compliance.upload') }}" class="btn-primary-green">
+                <i class="bi bi-rocket-takeoff-fill"></i> Run First Scan
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

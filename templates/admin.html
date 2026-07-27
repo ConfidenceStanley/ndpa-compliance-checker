@@ -1,4 +1,133 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h4>Admin coming soon</h4>
+<div class="page-header animate-slide-up">
+    <div>
+        <h4><i class="bi bi-gear-fill" style="color: var(--primary);"></i> Admin Panel</h4>
+        <p class="subtitle">System overview and user management.</p>
+    </div>
+</div>
+
+<div class="row g-3 mb-4 animate-slide-up-d1">
+    <div class="col-md-4">
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon" style="background:#f0fdf4; color:#16a34a;">
+                <i class="bi bi-people-fill"></i>
+            </div>
+            <div>
+                <div style="font-size:1.5rem; font-weight:800; color:var(--text-dark);">{{ total_users }}</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Total Users</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon" style="background:#eff6ff; color:#2563eb;">
+                <i class="bi bi-file-earmark-text-fill"></i>
+            </div>
+            <div>
+                <div style="font-size:1.5rem; font-weight:800; color:var(--text-dark);">{{ total_reports }}</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Total Reports</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon" style="background:#f5f3ff; color:#7c3aed;">
+                <i class="bi bi-graph-up"></i>
+            </div>
+            <div>
+                <div style="font-size:1.5rem; font-weight:800; color:var(--text-dark);">{{ avg_score }}%</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Avg Compliance</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="data-card animate-fade-in mb-4">
+    <div class="data-card-header">
+        <h6><i class="bi bi-people-fill" style="color:var(--primary);"></i> All Users</h6>
+    </div>
+    <div class="data-card-body">
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Joined</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td style="font-weight:500;">{{ user.username }}</td>
+                        <td style="color:var(--text-muted);">{{ user.email }}</td>
+                        <td>
+                            <span class="status-badge {% if user.role == 'admin' %}pass{% else %}partial{% endif %}">
+                                {{ user.role }}
+                            </span>
+                        </td>
+                        <td style="color:var(--text-muted);">{{ user.date_created.strftime('%d %b %Y') }}</td>
+                        <td>
+                            {% if user.id != current_user.id %}
+                            <form method="POST"
+                                  action="{{ url_for('admin.delete_user', user_id=user.id) }}"
+                                  onsubmit="return confirm('Delete {{ user.username }}?');"
+                                  style="display:inline;">
+                                <button type="submit"
+                                        style="background:#fef2f2; border:1px solid #fecaca; color:#dc2626; border-radius:6px; padding:4px 10px; font-size:0.78rem; font-weight:500; cursor:pointer;">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </button>
+                            </form>
+                            {% else %}
+                            <span style="color:var(--text-muted); font-size:0.8rem;">You</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="data-card animate-fade-in">
+    <div class="data-card-header">
+        <h6><i class="bi bi-file-earmark-bar-graph-fill" style="color:var(--primary);"></i> All Reports</h6>
+    </div>
+    <div class="data-card-body">
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Document</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                    <tr>
+                        <td style="font-weight:500;">{{ report.user.username }}</td>
+                        <td style="color:var(--text-muted);">{{ report.file_name }}</td>
+                        <td>
+                            <span class="score-text
+                                {% if report.compliance_score >= 70 %}" style="color:#16a34a;
+                                {% elif report.compliance_score >= 40 %}" style="color:#d97706;
+                                {% else %}" style="color:#dc2626;{% endif %}">
+                                {{ report.compliance_score }}%
+                            </span>
+                        </td>
+                        <td style="color:var(--text-muted);">{{ report.date_checked.strftime('%d %b %Y') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

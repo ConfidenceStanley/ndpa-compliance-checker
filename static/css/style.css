@@ -805,3 +805,192 @@ body {
     .stat-value { font-size: 1.4rem; }
     .auth-card { margin: 0 1rem; }
 }
+
+
+
+
+
+/* ========== UPLOAD PAGE ========== */
+.upload-drop-area {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: var(--bg-body);
+    cursor: pointer;
+}
+
+.upload-drop-area:hover,
+.upload-drop-area.dragover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.upload-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    background: var(--primary-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    border: 1px solid #bbf7d0;
+    animation: float 4s ease-in-out infinite;
+}
+
+
+/* ========== REPORT PAGE ========== */
+.report-header-card {
+    background: var(--gradient-header);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-header-card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+}
+
+.report-score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 3px solid rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.report-score-circle .score-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.report-score-circle .score-pct {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.finding-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.finding-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.finding-card-header {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.finding-card-header.compliant {
+    background: #f0fdf4;
+    border-bottom: 1px solid #bbf7d0;
+}
+
+.finding-card-header.non-compliant {
+    background: #fef2f2;
+    border-bottom: 1px solid #fecaca;
+}
+
+.finding-card-header.not-addressed {
+    background: #fffbeb;
+    border-bottom: 1px solid #fde68a;
+}
+
+.finding-card-body {
+    padding: 1rem;
+    background: white;
+}
+
+.finding-rule-text {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.finding-match-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--bg-body);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 0.5rem;
+}
+
+.finding-recommendation {
+    font-size: 0.8rem;
+    color: #1e40af;
+    background: #eff6ff;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid #3b82f6;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+
+/* ========== HISTORY PAGE ========== */
+.history-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+
+/* ========== ADMIN PAGE ========== */
+.admin-stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.admin-stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}

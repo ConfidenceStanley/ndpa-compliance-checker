@@ -73,3 +73,49 @@ function togglePassword(inputId, btn) {
         icon.classList.add('bi-eye');
     }
 }
+
+
+
+
+
+
+
+
+// File drag and drop + name display
+var dropArea = document.getElementById('drop-area');
+var fileInput = document.getElementById('document');
+var fileNameDisplay = document.getElementById('file-name-display');
+
+if (dropArea && fileInput) {
+
+    dropArea.addEventListener('click', function (e) {
+        if (e.target !== fileInput && !e.target.closest('label')) {
+            fileInput.click();
+        }
+    });
+
+    fileInput.addEventListener('change', function () {
+        if (fileInput.files[0]) {
+            fileNameDisplay.textContent = fileInput.files[0].name;
+        }
+    });
+
+    dropArea.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        dropArea.classList.add('dragover');
+    });
+
+    dropArea.addEventListener('dragleave', function () {
+        dropArea.classList.remove('dragover');
+    });
+
+    dropArea.addEventListener('drop', function (e) {
+        e.preventDefault();
+        dropArea.classList.remove('dragover');
+        var files = e.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files;
+            fileNameDisplay.textContent = files[0].name;
+        }
+    });
+}
